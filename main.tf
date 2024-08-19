@@ -27,6 +27,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "content_bucket" {
   bucket = "bucket-${local.name_suffix}"
+  force_destroy = true # becase content is managed in git
 }
 
 resource "aws_cloudfront_origin_access_control" "main" {
